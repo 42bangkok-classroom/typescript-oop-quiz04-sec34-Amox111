@@ -18,6 +18,7 @@ export class MissionService {
             FAILED: 0,
         };
 
+
         for (const mission of this.missions) {
             if (mission.status in summary) {
                 summary[mission.status]++;
@@ -25,5 +26,9 @@ export class MissionService {
         }
 
         return summary;
+    }
+
+    findAll(){
+
     }
 }
