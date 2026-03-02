@@ -10,8 +10,20 @@ export class MissionService {
     { id: 5, codename: 'ECHO_FALLS', status: 'COMPLETED' },
     { id: 6, codename: 'GHOST_RIDER', status: 'COMPLETED' }
     ];
+    
+    getSummary(): Record<string, number> {
+        const summary: Record<string, number> = {
+            ACTIVE: 0,
+            COMPLETED: 0,
+            FAILED: 0,
+        };
 
-    getSummary(): any{
+        for (const mission of this.missions) {
+            if (mission.status in summary) {
+                summary[mission.status]++;
+            }
+        }
 
+        return summary;
     }
 }
